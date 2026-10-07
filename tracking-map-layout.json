@@ -1,0 +1,98 @@
+{
+  "screen": "Customer live tracking",
+  "direction": "Arabic is RTL. Do not mirror the map, the van, or the route.",
+  "mapContainer": {
+    "position": "flex-1 under the navigation header",
+    "background": "#070D18",
+    "nativeMap": true
+  },
+  "floatingControls": [
+    {
+      "id": "deliveryPill",
+      "textAr": "جاري التوصيل الآن",
+      "place": "top-start",
+      "insetPt": 12,
+      "heightPt": 28,
+      "radius": 14,
+      "background": "#3AD7FF",
+      "text": "#07090E",
+      "visibleWhen": "job is accepted and not complete"
+    },
+    {
+      "id": "liveLabel",
+      "textAr": "X Detailing | تتبع حي ومباشر",
+      "asset": "assets/tracking-live-indicator.svg",
+      "place": "top-end",
+      "insetPt": 12,
+      "visibleWhen": "job is accepted and not complete"
+    },
+    {
+      "id": "recenter",
+      "asset": "assets/tracking-recenter.svg",
+      "place": "bottom-end of the map, above the sheet",
+      "insetPt": 12,
+      "sizePt": 44,
+      "action": "fit van + customer with 48pt padding"
+    }
+  ],
+  "markers": [
+    {
+      "id": "van",
+      "asset": "assets/tracking-van-marker.svg",
+      "anchor": { "x": 0.5, "y": 0.5 },
+      "sizePt": [36, 36],
+      "flat": true,
+      "rotation": "gps heading",
+      "label": "VAN 1 or VAN 3, the employee who accepted. Hidden before acceptance."
+    },
+    {
+      "id": "customer",
+      "asset": "assets/tracking-customer-pin.svg",
+      "anchor": { "x": 0.5, "y": 0.5 },
+      "sizePt": [32, 32],
+      "labelAr": "عنوان العميل"
+    },
+    {
+      "id": "destination",
+      "asset": "assets/tracking-destination-pin.svg",
+      "anchor": { "x": 0.5, "y": 0.5 },
+      "sizePt": [28, 28],
+      "omitWhen": "same coordinate as the customer"
+    },
+    {
+      "id": "store",
+      "labelAr": "المتجر (X Detailing)",
+      "treatment": "12pt cyan dot, no separate file"
+    }
+  ],
+  "sheet": {
+    "overlapMapPt": 24,
+    "radiusTop": 28,
+    "background": "rgba(12, 20, 34, 0.92)",
+    "blocks": [
+      "driver card: call button, name, rating, vehicle, van code",
+      "stats: estimated km, minutes remaining, progress percent",
+      "support button opens the AI agent chat"
+    ],
+    "waiting": {
+      "icon": "radar mark, not a van",
+      "titleAr": "جاري التعيين",
+      "hideVanCode": true
+    },
+    "complete": {
+      "titleAr": "الخدمة أُغلقت",
+      "stopGps": true
+    }
+  },
+  "safeArea": {
+    "top": "status bar + 12pt before the pills",
+    "bottom": "home indicator + 12pt under the support button",
+    "horizontal": 16
+  },
+  "rtl": {
+    "textAndSheet": "RTL in Arabic, LTR in English",
+    "map": "never mirrored",
+    "callButton": "stays the leading control of the driver card",
+    "pills": "use start/end, not left/right"
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "name": "X Detailing live tracking map",
+  "version": "1.0.0",
+  "role": "Visual layer only. Do not replace the native map with an image.",
+  "map": {
+    "provider": "Native map. Google Maps if a style JSON can be applied. Apple Maps otherwise.",
+    "desiredVisualEffect": "Night map. Near-black land, muted blue-gray roads, low-contrast labels, no bright POI icons. The cyan route and markers must stay the brightest objects.",
+    "productionSafe": {
+      "google": "Use PROVIDER_GOOGLE and the customMapStyle in this file.",
+      "apple": "Apple Maps cannot recolor roads. Use the default muted map, then draw the route and markers from this package on top. Do not screenshot the web map and use it as a background."
+    },
+    "darkMode": {
+      "land": "#070D18",
+      "landAlt": "#0E1728",
+      "roadMinor": "#1E3354",
+      "roadMajor": "#314868",
+      "roadCasing": "#070D18",
+      "label": "#8EA0B8",
+      "labelHalo": "#05070D",
+      "water": "#0A1626",
+      "park": "#0C1916",
+      "poi": "hidden"
+    },
+    "googleMapStyle": [
+      { "elementType": "geometry", "stylers": [{ "color": "#070D18" }] },
+      { "elementType": "labels.text.fill", "stylers": [{ "color": "#8EA0B8" }] },
+      { "elementType": "labels.text.stroke", "stylers": [{ "color": "#05070D" }] },
+      { "featureType": "poi", "stylers": [{ "visibility": "off" }] },
+      { "featureType": "transit", "stylers": [{ "visibility": "off" }] },
+      { "featureType": "road", "elementType": "geometry", "stylers": [{ "color": "#1E3354" }] },
+      { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#314868" }] },
+      { "featureType": "road.highway", "elementType": "geometry", "stylers": [{ "color": "#314868" }] },
+      { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#0A1626" }] },
+      { "featureType": "landscape.natural", "elementType": "geometry", "stylers": [{ "color": "#0C1916" }] }
+    ],
+    "edgePaddingPt": 48,
+    "zoom": {
+      "followVan": 15,
+      "recenterMax": 16,
+      "min": 11,
+      "behavior": "While the job is live, keep the camera on the latest van coordinate at zoom 15. Recenter fits the van and the customer coordinate with 48pt padding and does not zoom closer than 16. Do not animate the van between GPS points."
+    },
+    "updates": {
+      "intervalSeconds": 4,
+      "source": "Employee phone GPS after the employee accepts the job. Stop when the job is completed."
+    }
+  },
+  "route": {
+    "core": { "color": "#3AD7FF", "widthPt": 4, "opacity": 0.95, "lineCap": "round" },
+    "glow": { "color": "#3AD7FF", "widthPt": 10, "opacity": 0.22, "lineCap": "round" },
+    "desiredVisualEffect": "A neon cyan route with a soft outer glow.",
+    "productionSafe": "Draw two polylines on the same coordinates. Wide glow first, thin core on top. Native maps have no stroke-shadow.",
+    "delayed": { "color": "#F0A43A", "dash": [7, 8], "opacity": 0.9 },
+    "remainingOnly": true
+  },
+  "colors": {
+    "bg": "#05070D",
+    "map": "#070D18",
+    "ink": "#07090E",
+    "surface": "#0C1422",
+    "surface2": "#121C2E",
+    "line": "#1C2D48",
+    "cyan": "#3AD7FF",
+    "cyanHot": "#8AF0FF",
+    "fg": "#F3F7FB",
+    "muted": "#8EA0B8",
+    "amber": "#F0A43A",
+    "green": "#3EE59A",
+    "callButtonText": "#07090E"
+  },
+  "markers": {
+    "van": {
+      "file": "assets/tracking-van-marker.svg",
+      "fallback": ["assets/tracking-van-marker@1x.png", "assets/tracking-van-marker@2x.png", "assets/tracking-van-marker@3x.png"],
+      "artboardPx": [128, 128],
+      "displayPt": [36, 36],
+      "anchor": { "x": 0.5, "y": 0.5 },
+      "heading": "Nose points up at rotation 0. Set Marker rotation to the GPS heading and flat to true. The artboard is square so the anchor stays centered while rotating.",
+      "background": "transparent",
+      "recognizableAtPt": 28
+    },
+    "destination": {
+      "file": "assets/tracking-destination-pin.svg",
+      "artboardPx": [64, 64],
+      "displayPt": [28, 28],
+      "anchor": { "x": 0.5, "y": 0.5 },
+      "use": "Route end when it is not the same coordinate as the customer."
+    },
+    "customer": {
+      "file": "assets/tracking-customer-pin.svg",
+      "artboardPx": [64, 64],
+      "displayPt": [32, 32],
+      "anchor": { "x": 0.5, "y": 0.5 },
+      "use": "Customer address. If this is also the destination, use only this pin."
+    },
+    "checkpoint": {
+      "desiredVisualEffect": "A 12pt cyan dot with a 2pt white ring, labeled نقطة التحقق.",
+      "productionSafe": "A circle Marker, fill #3AD7FF, stroke #F3F7FB, no extra asset."
+    }
+  },
+  "pulse": {
+    "file": "assets/tracking-live-pulse.svg",
+    "displayPt": [72, 72],
+    "anchor": { "x": 0.5, "y": 0.5 },
+    "durationMs": 1800,
+    "from": { "scale": 0.65, "opacity": 0.75 },
+    "to": { "scale": 1.7, "opacity": 0 },
+    "easing": "ease-out",
+    "repeat": "infinite",
+    "rotateWithVan": false,
+    "reducedMotion": "Show the center dot only."
+  },
+  "liveIndicator": {
+    "file": "assets/tracking-live-indicator.svg",
+    "displayPt": [16, 16],
+    "color": "#3EE59A",
+    "delayedColor": "#F0A43A",
+    "labelAr": "تتبع حي ومباشر",
+    "labelEn": "Live tracking",
+    "pillAr": "جاري التوصيل الآن",
+    "pillEn": "On the way now",
+    "pillBackground": "#3AD7FF",
+    "pillText": "#07090E"
+  },
+  "recenter": {
+    "file": "assets/tracking-recenter.svg",
+    "glyphPt": [24, 24],
+    "buttonPt": 44,
+    "buttonRadius": 22,
+    "buttonFill": "rgba(12, 20, 34, 0.9)",
+    "buttonBorder": "#1C2D48"
+  },
+  "type": {
+    "arabic": "IBM Plex Sans Arabic",
+    "latin": "Outfit"
+  }
+}

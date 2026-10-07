@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <!-- Nose points up. Anchor is the center of this artboard: 0.5, 0.5. Rotate with heading. No background. -->
+  <g transform="translate(64 64)">
+    <rect x="-18" y="-36" width="36" height="72" rx="9" fill="#10151C" stroke="#3AD7FF" stroke-width="2"/>
+    <path d="M-12 -28 H12 C14 -22 14 -16 12 -14 H-12 C-14 -16 -14 -22 -12 -28 Z" fill="#1A3348"/>
+    <path d="M-8 0 L8 16 M8 0 L-8 16" stroke="#3AD7FF" stroke-width="3" stroke-linecap="round"/>
+    <rect x="-14" y="28" width="7" height="3.5" rx="1" fill="#8AF0FF"/>
+    <rect x="7" y="28" width="7" height="3.5" rx="1" fill="#8AF0FF"/>
+    <rect x="-8" y="-34" width="5" height="3" rx="1" fill="#F3F7FB"/>
+    <rect x="3" y="-34" width="5" height="3" rx="1" fill="#F3F7FB"/>
+  </g>
+</svg>
