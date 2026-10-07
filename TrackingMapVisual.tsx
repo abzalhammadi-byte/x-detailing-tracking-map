@@ -58,7 +58,7 @@ export function TrackingMapVisual({ van, customer, heading = 0, route = [], dela
 
 const styles = StyleSheet.create({
   fill: { flex: 1, backgroundColor: "#070D18" },
-  van: { width: 36, height: 36 },
+  van: { width: 17, height: 36 },
   customer: {
     width: 22,
     height: 22,

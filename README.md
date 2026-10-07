@@ -17,17 +17,20 @@ Visual layer only. The roads, GPS, and camera stay a **native live map**. Do not
 
 | File | Place | Anchor | Display |
 |---|---|---|---|
-| `assets/tracking-van-marker.svg` | Van marker. Source of truth. | `0.5, 0.5` | 36 × 36 pt |
-| `assets/tracking-van-marker@1x.png` | Marker fallback, 64 px | `0.5, 0.5` | 36 pt |
-| `assets/tracking-van-marker@2x.png` | 128 px | `0.5, 0.5` | 36 pt |
-| `assets/tracking-van-marker@3x.png` | 192 px. Prefer this in the app. | `0.5, 0.5` | 36 pt |
+| `assets/tracking-van-marker@3x.png` | **Primary van marker.** Realistic dark Expert, cyan X, nose up. | `0.5, 0.5` | 17 × 36 pt |
+| `assets/tracking-van-marker@2x.png` | Same marker, 34 × 72 px | `0.5, 0.5` | 17 × 36 pt |
+| `assets/tracking-van-marker@1x.png` | Same marker, 17 × 36 px | `0.5, 0.5` | 17 × 36 pt |
+| `assets/tracking-van-marker.svg` | Silhouette fallback only. Do not use if the PNG loads. | `0.5, 0.5` | 17 × 36 pt |
+| `assets/tracking-van-marker-preview.png` | Inspection sheet. Not a map asset. | | |
 | `assets/tracking-customer-pin.svg` | Customer address | `0.5, 0.5` | 32 pt |
 | `assets/tracking-destination-pin.svg` | Separate route end only | `0.5, 0.5` | 28 pt |
 | `assets/tracking-live-indicator.svg` | Green dot beside the live label | center | 16 pt |
 | `assets/tracking-live-pulse.svg` | Pulse under the van, not rotated | `0.5, 0.5` | 72 pt |
 | `assets/tracking-recenter.svg` | Inside a 44 pt circle, bottom-end of the map | n/a | 24 pt glyph |
 
-The van nose points **up** at rotation `0`. Set `flat` and `rotation` to the GPS heading.
+The van nose points **up** at rotation `0`. Set `flat` and `rotation` to the GPS heading. Do not rotate the pulse under it.
+
+**Primary file:** `assets/tracking-van-marker@3x.png`. It is a tight transparent render, 51 × 108 px, shown at 17 × 36 pt. It stays readable from 32 pt to 44 pt on the long side. The SVG is a silhouette backup only.
 
 PNG files have a transparent background. SVG is the master if you redraw.
 

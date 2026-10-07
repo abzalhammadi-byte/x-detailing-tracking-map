@@ -70,14 +70,18 @@
   },
   "markers": {
     "van": {
-      "file": "assets/tracking-van-marker.svg",
+      "primary": "assets/tracking-van-marker@3x.png",
+      "svg": "assets/tracking-van-marker.svg",
+      "note": "Use the PNG in production. The SVG is only a silhouette fallback. A realistic Expert does not hold up as vectors.",
       "fallback": ["assets/tracking-van-marker@1x.png", "assets/tracking-van-marker@2x.png", "assets/tracking-van-marker@3x.png"],
-      "artboardPx": [128, 128],
-      "displayPt": [36, 36],
+      "pixels": { "1x": [17, 36], "2x": [34, 72], "3x": [51, 108] },
+      "displayPt": [17, 36],
+      "alsoClearAtPt": [32, 40, 44],
       "anchor": { "x": 0.5, "y": 0.5 },
-      "heading": "Nose points up at rotation 0. Set Marker rotation to the GPS heading and flat to true. The artboard is square so the anchor stays centered while rotating.",
+      "heading": "Nose points up at rotation 0. Rotate this image with the GPS heading. The artboard is tight to the van, portrait, not square.",
       "background": "transparent",
-      "recognizableAtPt": 28
+      "containsPulse": false,
+      "recognizableAtPt": 32
     },
     "destination": {
       "file": "assets/tracking-destination-pin.svg",

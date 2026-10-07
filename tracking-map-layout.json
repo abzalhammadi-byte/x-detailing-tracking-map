@@ -38,9 +38,9 @@
   "markers": [
     {
       "id": "van",
-      "asset": "assets/tracking-van-marker.svg",
+      "asset": "assets/tracking-van-marker@3x.png",
       "anchor": { "x": 0.5, "y": 0.5 },
-      "sizePt": [36, 36],
+      "sizePt": [17, 36],
       "flat": true,
       "rotation": "gps heading",
       "label": "VAN 1 or VAN 3, the employee who accepted. Hidden before acceptance."
